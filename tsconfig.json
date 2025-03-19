@@ -13,10 +13,11 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",  // ⚠️ CAMBIADO de "bundler" a "node"
     "importHelpers": true,
     "target": "ES2022",
-    "module": "ES2022"
+    "module": "ES2022",
+    "useDefineForClassFields": false // ⚠️ Añadir para evitar problemas con clases Angular
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
