@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Articulo } from './articulo';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticuloRestService {
+
+
   constructor(private httpClient:HttpClient) { }
   
-  public buscarTodos():Observable<Articulo[]>{
+  public buscarTodos(): Observable<Articulo[]> {
+    const headers = new HttpHeaders({
+      'Authorization': 'Basic ' + btoa('admin:admin123')
+    });
   
-  return this.httpClient.get<Articulo[]>("http://admin:admin123@localhost:4200/api/articulos");
+    return this.httpClient.get<Articulo[]>("http://localhost:4200/api/articulos", { headers });
   }
   
   public insertar (articulo:Articulo):Observable<Articulo>{
