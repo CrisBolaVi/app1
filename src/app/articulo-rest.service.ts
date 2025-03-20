@@ -11,17 +11,17 @@ export class ArticuloRestService {
   
   public buscarTodos():Observable<Articulo[]>{
   
-  return this.httpClient.get<Articulo[]>("http://localhost:8080/webapi/articulo");
+  return this.httpClient.get<Articulo[]>("http://admin:admin123@localhost:4200/api/articulos");
   }
   
   public insertar (articulo:Articulo):Observable<Articulo>{
-    return this.httpClient.post<Articulo>("http://localhost:8080/webapi/articulo",articulo);
+    return this.httpClient.post<Articulo>("http://admin:admin123@localhost:4200/api/articulos",articulo);
   
   }
   
   
   public borrar (articulo:Articulo):Observable<Articulo>{
-    return this.httpClient.delete<Articulo>(`http://localhost:8080/webapi/articulo/${articulo.id}`);
+    return this.httpClient.delete<Articulo>(`http://admin:admin123@localhost:4200/api/articulos/${articulo.id}`);
   }
   }
  
